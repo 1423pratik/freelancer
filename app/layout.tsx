@@ -36,6 +36,11 @@ export const metadata: Metadata = {
   title: "Diksha Art Studio | Hand-Painted Art & Prints",
   description: "Bringing Art to Life - Shop original paintings, prints, and join the Art Mail Club",
   generator: "v0.app",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({

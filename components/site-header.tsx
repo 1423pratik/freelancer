@@ -1,11 +1,12 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { CartDrawer } from "@/components/cart-drawer"
+import { CartButton } from "@/components/cart-button"
 import { WishlistDrawer } from "@/components/wishlist-drawer"
 
 export function SiteHeader() {
@@ -26,17 +27,14 @@ export function SiteHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center cursor-pointer">
-          <svg
-            width="50"
-            height="50"
-            viewBox="0 0 50 50"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-[#3F3430]"
-          >
-            <circle cx="25" cy="25" r="20" stroke="currentColor" strokeWidth="2" />
-            <path d="M15 25 L25 15 L35 25 L25 35 Z" fill="currentColor" opacity="0.6" />
-          </svg>
+          <Image
+            src="/logo.png"
+            alt="Diksha Art Studio logo"
+            width={56}
+            height={56}
+            priority
+            className="h-12 w-auto object-contain drop-shadow-sm"
+          />
         </Link>
 
         {/* Desktop Navigation - Hidden on mobile */}
@@ -65,7 +63,7 @@ export function SiteHeader() {
         {/* Right side icons */}
         <div className="flex items-center gap-2">
           <WishlistDrawer />
-          <CartDrawer />
+          <CartButton />
 
           {/* Mobile menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
