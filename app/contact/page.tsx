@@ -184,12 +184,12 @@ export default function ContactPage() {
                       <div className="min-w-0 flex-1">
                         <p className="text-xs font-bold text-[#C66A45] uppercase tracking-wider mb-1">Instagram</p>
                         <Link
-                          href="https://instagram.com/dikshaart"
+                          href="https://www.instagram.com/artcartbydiksha/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm font-medium text-[#3F3430]/80 transition-colors duration-200 hover:text-[#C66A45]"
                         >
-                          @dikshaart
+                          @artcartbydiksha
                         </Link>
                       </div>
                     </div>
@@ -202,12 +202,12 @@ export default function ContactPage() {
                       <div className="min-w-0 flex-1">
                         <p className="text-xs font-bold text-[#C66A45] uppercase tracking-wider mb-1">YouTube</p>
                         <Link
-                          href="https://youtube.com/@dikshaart"
+                          href="https://www.youtube.com/@artcartbydiksha"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm font-medium text-[#3F3430]/80 transition-colors duration-200 hover:text-[#C66A45]"
                         >
-                          Diksha Art Studio
+                          @artcartbydiksha
                         </Link>
                       </div>
                     </div>

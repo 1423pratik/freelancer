@@ -7,7 +7,7 @@ export function SiteFooter() {
         {/* Social Icons */}
         <div className="flex justify-center gap-8 mb-8">
           <Link
-            href="https://instagram.com"
+            href="https://www.instagram.com/artcartbydiksha/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#3F3430] hover:text-[#C66A45] transition-transform duration-300 cursor-pointer hover:-translate-y-1"
@@ -18,7 +18,7 @@ export function SiteFooter() {
             </svg>
           </Link>
           <Link
-            href="https://youtube.com"
+            href="https://www.youtube.com/@artcartbydiksha"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#3F3430] hover:text-[#C66A45] transition-transform duration-300 cursor-pointer hover:-translate-y-1"
