@@ -1,3 +1,5 @@
+"use client"
+
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
@@ -5,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
 import TypewriterText from "@/components/typewriter-text"
+import { useWishlist } from "@/lib/wishlist-context"
 
 // Sample product data
 const featuredProducts = [
@@ -43,6 +46,25 @@ const featuredProducts = [
 ]
 
 export default function HomePage() {
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
+
+  const handleToggleLike = (e: React.MouseEvent, product: any) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id)
+    } else {
+      addToWishlist({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        category: product.category,
+        slug: product.slug,
+      })
+    }
+  }
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
@@ -191,7 +213,7 @@ export default function HomePage() {
               {featuredProducts.map((product) => (
                 <Link 
                   key={product.id} 
-                  href={`/shop/${product.slug}`}
+                  href={`/product/${product.slug}`}
                   className="group block"
                 >
                   <div className="relative rounded-3xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-[#3F3430]/8 hover:border-[#C66A45]/30 hover:-translate-y-2 h-full flex flex-col">
@@ -212,6 +234,30 @@ export default function HomePage() {
                         <span className="inline-block px-3 py-1.5 bg-[#3F3430]/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
                           {product.category}
                         </span>
+                      </div>
+                      
+                      {/* Favorites button */}
+                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button
+                          size="icon"
+                          variant="secondary"
+                          className={`h-8 w-8 bg-white/90 hover:bg-white cursor-pointer ${isInWishlist(product.id) ? "text-red-500" : ""}`}
+                          onClick={(e) => handleToggleLike(e, product)}
+                        >
+                          <svg
+                            className={`h-4 w-4 ${isInWishlist(product.id) ? "fill-current" : ""}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                            />
+                          </svg>
+                        </Button>
                       </div>
                       
                       {/* Gradient overlay on hover */}
@@ -239,12 +285,16 @@ export default function HomePage() {
                           </span>
                         </div>
                         
-                        {/* Add to cart icon */}
-                        <button className="w-10 h-10 rounded-full bg-[#C66A45]/10 hover:bg-[#C66A45] text-[#C66A45] hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                          </svg>
-                        </button>
+                        {/* Favorites indicator */}
+                        {isInWishlist(product.id) && (
+                          <div className="flex items-center justify-center">
+                            <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center">
+                              <svg className="w-4 h-4 text-red-500 fill-current" viewBox="0 0 24 24">
+                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -296,17 +346,16 @@ export default function HomePage() {
                 <div className="space-y-3">
                   <h2 className="luxury-heading text-3xl md:text-5xl text-white">Art Mail Club</h2>
                   <p className="luxury-body text-white/85 text-sm md:text-lg leading-relaxed max-w-xl">
-                    A monthly curation of original art, studio rituals, and tactile keepsakes that bring Diksha&apos;s creative
-                    world to your home.
+                    Your mailbox is not just for bills! ✉️✨ When you join the Art Mail Club, you&apos;ll receive a mystery art print along with fun little freebies. It&apos;s like receiving a letter from a friend, only with art that&apos;s made to brighten your day.
                   </p>
                 </div>
 
                 <div className="grid gap-4 md:gap-5">
                   {[
-                    "Monthly original artwork or numbered print",
-                    "Private studio diaries & process films",
-                    "Advance access to limited collections",
-                    "Palette inspirations tailored for your space",
+                    "Join the art mail club & receive an exclusive art print with a heartfelt letter (& freebies)",
+                    "All the art prints are originally drawn & hand painted by me & packaged with love",
+                    "These exclusive prints will be available for purchase till 25th of each month",
+                    "Prints will be shipped in the last week of the previous month",
                   ].map((perk) => (
                     <div key={perk} className="flex items-start gap-3 md:gap-4">
                       <span className="mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-white/15 border border-white/25 shadow-sm">
@@ -329,7 +378,7 @@ export default function HomePage() {
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
                   <p className="luxury-accent text-base text-white/80">
-                    Reserve your spot by the <span className="font-semibold">25th</span> of each month.
+                    Join now and receive your first mystery art print! <span className="font-semibold">Order by 25th</span> of each month.
                   </p>
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1 text-[11px] uppercase tracking-[0.25em] text-white/60">
@@ -359,14 +408,14 @@ export default function HomePage() {
                 </div>
 
                 <div className="text-center space-y-2 pt-6">
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-white/65">Next mailer ships</p>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-white/65">Next mystery box ships</p>
                   <p className="luxury-heading text-3xl text-white">April 28</p>
                   <p className="luxury-body text-sm text-white/75">Theme: Botanical Reveries</p>
                 </div>
 
                 <div className="w-full space-y-3">
                   <div className="flex items-center justify-between text-[11px] text-white/70">
-                    <span>Inside the box</span>
+                    <span>What&apos;s inside your mystery box</span>
                     <Link href="/subscriptions" scroll={true} className="hover:underline text-white/80 transition">
                       View all perks
                     </Link>
@@ -386,7 +435,7 @@ export default function HomePage() {
                   className="w-full bg-gradient-to-r from-white to-[#F6EFE7] text-[#214B47] hover:from-[#F6EFE7] hover:to-white rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer text-base font-semibold"
                 >
                   <Link href="/subscriptions" scroll={true}>
-                    Subscribe Now
+                    Join the Art Mail Club
                   </Link>
                 </Button>
               </div>

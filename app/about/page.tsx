@@ -83,23 +83,13 @@ export default function AboutPage() {
 
               <div className="space-y-4 md:space-y-6 text-[#3F3430] text-sm md:text-base leading-relaxed md:leading-loose">
                 <p>
-                  Hi there! I'm Diksha, a self-taught artist based in India with a passion for bringing color and joy
-                  into everyday life. My journey into art began as a creative escape, and it has since blossomed into a
-                  full-time pursuit of capturing beauty, emotion, and stories on canvas.
+                  Hi! I'm Diksha & this is the final destination of all my creative journeys, I hope you find some art here to put in your cart.
                 </p>
                 <p>
-                  Each piece I create is infused with intention and care. Whether it's an original painting, a limited
-                  edition print, or a custom commission, I pour my heart into every brushstroke. My work is inspired by
-                  nature, emotions, and the little moments that make life beautiful.
+                  <strong>Originals -</strong> Made with love (and a little sweat + tears) — these paintings are inspired by life, stories, and sometimes the darkest corner of Pinterest. Each piece is one-of-a-kind and ready to find its forever wall.
                 </p>
                 <p>
-                  Beyond creating art, I love connecting with fellow art lovers through my Art Mail Club, where I share
-                  exclusive pieces, behind-the-scenes content, and the creative process. It's my way of building a
-                  community of people who appreciate the beauty of handmade art.
-                </p>
-                <p>
-                  Thank you for being here and supporting my creative journey. I'm excited to share my art with you and
-                  hope it brings as much joy to your space as it does to my studio.
+                  <strong>Art Merch -</strong> This is the coolest part of this website ! It's like owning an art piece & having an additional use to it!
                 </p>
               </div>
             </div>

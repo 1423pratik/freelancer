@@ -6,6 +6,7 @@ import "./globals.css"
 import { CartProvider } from "@/lib/cart-context"
 import { WishlistProvider } from "@/lib/wishlist-context"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { Toaster } from "@/components/ui/toaster"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -57,6 +58,7 @@ export default function RootLayout({
           <CartProvider>
             <ScrollToTop />
             <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+            <Toaster />
           </CartProvider>
         </WishlistProvider>
       </body>

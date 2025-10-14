@@ -34,7 +34,7 @@ export default function ProductDetailPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const router = useRouter()
-  const { addToCart, setIsCartOpen } = useCart()
+  const { addToCart } = useCart()
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % productData.images.length)
@@ -60,7 +60,6 @@ export default function ProductDetailPage() {
       price: productData.price,
       image: productData.images[0],
     })
-    setIsCartOpen(false)
     router.push("/checkout")
   }
 

@@ -6,10 +6,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { useWishlist } from "@/lib/wishlist-context"
 import { useCart } from "@/lib/cart-context"
+import { useToast } from "@/hooks/use-toast"
+import { useState } from "react"
 
 export function WishlistDrawer() {
   const { wishlistItems, removeFromWishlist, isWishlistOpen, setIsWishlistOpen } = useWishlist()
   const { addToCart } = useCart()
+  const { toast } = useToast()
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [successItemName, setSuccessItemName] = useState("")
 
   const handleRemoveItem = (id: string) => {
     removeFromWishlist(id)
@@ -22,6 +27,21 @@ export function WishlistDrawer() {
       price: item.price,
       image: item.image,
       category: item.category,
+    })
+    
+    // Show success message
+    setSuccessItemName(item.title)
+    setShowSuccessMessage(true)
+    
+    // Hide message after 3 seconds
+    setTimeout(() => {
+      setShowSuccessMessage(false)
+    }, 3000)
+    
+    // Also try the toast system
+    toast({
+      title: "✓ Added to cart successfully!",
+      description: `${item.title} has been added to your cart.`,
     })
   }
 
@@ -59,6 +79,18 @@ export function WishlistDrawer() {
         </SheetHeader>
 
         <div className="flex flex-col h-full pt-6">
+          {/* Success Message */}
+          {showSuccessMessage && (
+            <div className="mb-4 p-3 bg-green-100 border border-green-300 rounded-lg flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-green-800 font-medium">
+                ✓ {successItemName} added to cart successfully!
+              </span>
+            </div>
+          )}
+          
           {wishlistItems.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center text-center">
               <svg className="h-16 w-16 text-[#3F3430]/30 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

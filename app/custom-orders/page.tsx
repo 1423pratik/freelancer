@@ -68,12 +68,13 @@ export default function CustomOrdersPage() {
                 bespoke storytelling
               </div>
               <h1 className="luxury-heading text-3xl md:text-5xl text-[#3F3430]">
-                Request a Custom Artwork by Diksha
+                Custom Orders
               </h1>
               <p className="luxury-body text-[#3F3430]/80 text-sm md:text-base leading-relaxed max-w-2xl">
-                Share your vision, palette, or treasured memory and Diksha will translate it into a one-of-a-kind
-                painting. From intimate gifts to statement pieces, each commission is handcrafted with archival
-                materials and heartfelt storytelling.
+                Got a vision? I&apos;ll turn it into art — from dreamy to downright quirky. (Yes, even your cat in a crown.) Personalise & customise an art piece for yourself or for your loved ones.
+              </p>
+              <p className="luxury-body text-[#3F3430]/70 text-sm md:text-base leading-relaxed max-w-2xl">
+                Eg. portraits, canvas paintings, hand painted cards or letters & more
               </p>
               <div className="flex flex-wrap gap-4 lg:gap-6 text-left">
                 {[
@@ -158,130 +159,50 @@ export default function CustomOrdersPage() {
                   onSubmit={handleSubmit}
                   className="space-y-6 bg-white/85 backdrop-blur-sm border border-[#3F3430]/10 shadow-[0_20px_60px_rgba(63,52,48,0.12)] rounded-[32px] p-6 md:p-10"
                 >
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="luxury-body text-[#3F3430] font-semibold">
-                        Full Name *
-                      </Label>
-                      <Input id="name" required placeholder="Enter your name" className="bg-white/70" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="luxury-body text-[#3F3430] font-semibold">
-                        Email *
-                      </Label>
-                      <Input id="email" type="email" required placeholder="you@email.com" className="bg-white/70" />
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="luxury-body text-[#3F3430] font-semibold">
+                      Name *
+                    </Label>
+                    <Input id="name" required placeholder="Enter your name" className="bg-white/70" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="luxury-body text-[#3F3430] font-semibold">
-                      Phone Number (Optional)
+                    <Label htmlFor="email" className="luxury-body text-[#3F3430] font-semibold">
+                      E-mail *
                     </Label>
-                    <Input id="phone" type="tel" placeholder="+91 " className="bg-white/70" />
+                    <Input id="email" type="email" required placeholder="you@email.com" className="bg-white/70" />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="description" className="luxury-body text-[#3F3430] font-semibold">
-                      Project Description *
+                      Describe what you are looking for (size, medium etc) *
                     </Label>
                     <Textarea
                       id="description"
                       required
-                      placeholder="Share your story, the mood, palette, or any symbolism you'd love to incorporate..."
+                      placeholder="Tell me about your vision - size, medium, style, colors, or any specific details..."
                       className="bg-white/70 min-h-[140px]"
                     />
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="size" className="luxury-body text-[#3F3430] font-semibold">
-                        Preferred Size
-                      </Label>
-                      <Select>
-                        <SelectTrigger className="bg-white/70">
-                          <SelectValue placeholder="Select size" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="small">Small (12x16 inches)</SelectItem>
-                          <SelectItem value="medium">Medium (18x24 inches)</SelectItem>
-                          <SelectItem value="large">Large (24x36 inches)</SelectItem>
-                          <SelectItem value="xlarge">Extra Large (36x48 inches)</SelectItem>
-                          <SelectItem value="custom">Custom Size</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="medium" className="luxury-body text-[#3F3430] font-semibold">
-                        Preferred Medium
-                      </Label>
-                      <Select>
-                        <SelectTrigger className="bg-white/70">
-                          <SelectValue placeholder="Select medium" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="acrylic">Acrylic</SelectItem>
-                          <SelectItem value="watercolor">Watercolor</SelectItem>
-                          <SelectItem value="oil">Oil Paint</SelectItem>
-                          <SelectItem value="mixed">Mixed Media</SelectItem>
-                          <SelectItem value="digital">Digital Art</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="deadline" className="luxury-body text-[#3F3430] font-semibold">
-                        Desired Delivery Date
-                      </Label>
-                    <Input id="deadline" type="date" className="bg-white/70 w-[220px] md:w-[260px]" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="budget" className="luxury-body text-[#3F3430] font-semibold">
-                        Budget Range
-                      </Label>
-                      <Select>
-                        <SelectTrigger className="bg-white/70">
-                          <SelectValue placeholder="Select budget" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="5k-10k">₹5,000 - ₹10,000</SelectItem>
-                          <SelectItem value="10k-20k">₹10,000 - ₹20,000</SelectItem>
-                          <SelectItem value="20k-50k">₹20,000 - ₹50,000</SelectItem>
-                          <SelectItem value="50k+">₹50,000+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
                   <div className="space-y-2">
-                    <Label htmlFor="file" className="luxury-body text-[#3F3430] font-semibold">
-                      Reference Images (Optional)
+                    <Label htmlFor="deadline" className="luxury-body text-[#3F3430] font-semibold">
+                      Expected delivery date
                     </Label>
-                    <div className="relative">
-                      <Input id="file" type="file" accept="image/*" multiple onChange={handleFileChange} className="hidden" />
-                      <Label
-                        htmlFor="file"
-                        className="flex items-center justify-center gap-2 w-full p-4 border-2 border-dashed border-[#3F3430]/20 rounded-2xl cursor-pointer hover:border-[#C66A45] transition-colors bg-white/70"
-                      >
-                        <Upload className="h-5 w-5 text-[#3F3430]/60" />
-                        <span className="text-[#3F3430]/60 text-sm">
-                          {fileName || "Click to upload inspiration or reference images"}
-                        </span>
-                      </Label>
-                    </div>
+                    <Input id="deadline" type="date" className="bg-white/70" />
                   </div>
+
 
                   <Button
                     type="submit"
                     size="lg"
                     className="w-full bg-[#C66A45] hover:bg-[#C66A45]/90 text-white cursor-pointer rounded-full text-base md:text-lg py-5"
                   >
-                    Submit Request
+                    Drop the details here
                   </Button>
 
                   <p className="luxury-body text-[#3F3430]/60 text-sm text-center">
-                    I&apos;ll review your request and contact you within 2-3 business days.
+                    I&apos;ll get back to you soon to discuss your vision!
                   </p>
                 </form>
               ) : (
@@ -289,10 +210,9 @@ export default function CustomOrdersPage() {
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#8AA395] text-white">
                     <Sparkles className="h-7 w-7" />
                   </div>
-                  <h2 className="luxury-heading text-3xl text-[#3F3430]">Request Submitted!</h2>
+                  <h2 className="luxury-heading text-3xl text-[#3F3430]">Details Dropped!</h2>
                   <p className="luxury-body text-[#3F3430]/75 text-sm md:text-base max-w-md mx-auto">
-                    Thank you for entrusting your vision to me. I&apos;ll review the details and reach out within 2-3
-                    business days with a tailored quote, timeline, and next steps.
+                    Thanks for sharing your vision! I&apos;ll get back to you soon to discuss your custom art piece and bring your ideas to life.
                   </p>
                   <Button
                     onClick={() => {
@@ -302,7 +222,7 @@ export default function CustomOrdersPage() {
                     variant="outline"
                     className="border-[#C66A45] text-[#C66A45] hover:bg-[#C66A45] hover:text-white cursor-pointer rounded-full px-6"
                   >
-                    Submit Another Request
+                    Drop Another Request
                   </Button>
                 </div>
               )}

@@ -104,10 +104,6 @@ export default function SubscriptionsPage() {
               A Monthly Art Experience
             </div>
             <h1 className="luxury-heading text-4xl md:text-6xl lg:text-7xl text-white">Join the Art Mail Club</h1>
-            <p className="luxury-body text-white/90 text-base md:text-xl leading-relaxed max-w-3xl">
-              Turning strangers into cherished collectors. Each month, Diksha curates exclusive artworks, stories, and
-              keepsakes crafted to delight your senses.
-            </p>
           </div>
         </section>
 
@@ -130,17 +126,16 @@ export default function SubscriptionsPage() {
               <div className="space-y-3">
                 <h2 className="luxury-heading text-3xl md:text-5xl">Art Mail Club</h2>
                 <p className="luxury-body text-white/90 text-sm md:text-lg leading-relaxed max-w-xl">
-                  Each box is a sensorial story curated by Diksha—original art, handwritten notes, palette studies, and
-                  tactile treasures inspired by the month&apos;s muse.
+                  Your mailbox is not just for bills! ✉️✨ When you join the Art Mail Club, you&apos;ll receive a mystery art print along with fun little freebies. It&apos;s like receiving a letter from a friend, only with art that&apos;s made to brighten your day.
                 </p>
               </div>
 
               <div className="grid gap-4">
                 {[
-                  "Monthly original artwork or hand-numbered print",
-                  "Exclusive studio diaries, playlists & process videos",
-                  "First dibs on capsule collections & commissions",
-                  "Personalized color stories tailored to your space",
+                  "Join the art mail club & receive an exclusive art print with a heartfelt letter (& freebies)",
+                  "All the art prints are originally drawn & hand painted by me & packaged with love",
+                  "These exclusive prints will be available for purchase till 25th of each month",
+                  "Prints will be shipped in the last week of the previous month",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 md:gap-4">
                     <span className="mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-white/15 border border-white/25">
@@ -165,7 +160,7 @@ export default function SubscriptionsPage() {
             <div className="relative z-10 bg-white/12 backdrop-blur-xl border border-white/20 rounded-[28px] m-4 md:m-6 p-6 md:p-8 space-y-6 shadow-inner">
               <div className="flex items-center gap-3 text-white/85">
                 <Sparkles className="h-6 w-6" />
-                <span className="text-xs uppercase tracking-[0.4em]">Next Edition</span>
+                <span className="text-xs uppercase tracking-[0.4em]">Next Mystery Box</span>
               </div>
               <div className="space-y-1">
                 <p className="luxury-heading text-3xl">April 28</p>
@@ -194,7 +189,7 @@ export default function SubscriptionsPage() {
                 size="lg"
                 className="w-full bg-gradient-to-r from-white to-[#F6EFE7] text-[#214B47] hover:from-[#F6EFE7] hover:to-white rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer text-base font-semibold"
               >
-                Reserve Your Membership
+                Join the Art Mail Club
               </Button>
             </div>
           </div>
@@ -329,8 +324,7 @@ export default function SubscriptionsPage() {
             <p className="luxury-accent text-lg text-[#C66A45]">Ready to collect?</p>
             <h3 className="luxury-heading text-3xl md:text-4xl text-[#3F3430]">Secure your Art Mail seat today.</h3>
             <p className="luxury-body text-[#3F3430]/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-              Each edition ships with love from the studio. Join a circle of art lovers discovering tactile storytelling
-              every month.
+              Join now and receive your first mystery art print! All prints are originally drawn & hand painted by me & packaged with love. Order by 25th of each month.
             </p>
             <Button
               onClick={() => handleSubscribe("premium")}
